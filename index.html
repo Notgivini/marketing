@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InterMedius - Premium Digital Marketing & Design</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f3f4f6',
+                            100: '#e5e7eb',
+                            200: '#d1d5db',
+                            300: '#9ca3af',
+                            400: '#6b7280',
+                            500: '#4b5563',
+                            600: '#374151',
+                            700: '#1f2937',
+                            800: '#111827',
+                            900: '#030712',
+                        },
+                        secondary: {
+                            50: '#fdf8f6',
+                            100: '#f2e8e5',
+                            200: '#eaddd7',
+                            300: '#e0cec7',
+                            400: '#d2bab0',
+                            500: '#bfa094',
+                            600: '#a18072',
+                            700: '#977669',
+                            800: '#846358',
+                            900: '#43302b',
+                        },
+                        accent: {
+                            50: '#fbf7f4',
+                            100: '#f5ebe5',
+                            200: '#ead6c9',
+                            300: '#ddbca7',
+                            400: '#d09c7a',
+                            500: '#c17d54',
+                            600: '#b56a40',
+                            700: '#9c5333',
+                            800: '#7e4429',
+                            900: '#663a24',
+                        },
+                        dark: {
+                            800: '#1e1e1e',
+                            900: '#121212',
+                        }
+                    },
+                    fontFamily: {
+                        'sans': ['Montserrat', 'sans-serif'],
+                        'serif': ['Playfair Display', 'serif'],
+                    },
+                    boxShadow: {
+                        'premium': '0 10px 40px -10px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1)',
+                        'premium-hover': '0 20px 60px -15px rgba(0, 0, 0, 0.2), 0 8px 24px -8px rgba(0, 0, 0, 0.15)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .playfair {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .premium-gradient {
+            background: linear-gradient(135deg, #1f2937 0%, #977669 100%);
+        }
+        
+        .service-card {
+            transition: all 0.4s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .testimonial-gradient {
+            background: linear-gradient(135deg, #1f2937 0%, #846358 100%);
+        }
+        
+        .btn-premium {
+            transition: all 0.3s ease;
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .form-error {
+            color: #ef4444;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+        
+        .form-success {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.5s ease;
+        }
+        
+        .form-success.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .form-loading {
+            display: none;
+        }
+        
+        .form-loading.show {
+            display: flex;
+        }
+        
+        .spinner {
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .slide-in {
+            animation: slideIn 0.5s forwards;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-dark-800">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-premium fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 md:px-8 lg:px-16">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <div class="text-2xl font-bold">
+                        <span class="playfair text-primary-700">Inter</span><span class="playfair text-accent-700">Medius</span>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex space-x-10">
+                    <a href="#home" class="text-gray-700 hover:text-accent-600 font-medium transition duration-300">Home</a>
+                    <a href="#services" class="text-gray-700 hover:text-accent-600 font-medium transition duration-300">Services</a>
+                    <a href="#about" class="text-gray-700 hover:text-accent-600 font-medium transition duration-300">About</a>
+                    <a href="#contact" class="text-gray-700 hover:text-accent-600 font-medium transition duration-300">Contact</a>
+                </div>
+                
+                <div class="hidden md:block">
+                    <a href="#contact" class="bg-primary-700 hover:bg-primary-800 text-white font-medium py-2 px-6 rounded-lg transition duration-300">
+                        Get Started
+                    </a>
+                </div>
+                
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-gray-700 hover:text-accent-600 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="md:hidden hidden pb-6">
+                <a href="#home" class="block py-3 text-gray-700 hover:text-accent-600 font-medium border-b border-gray-100">Home</a>
+                <a href="#services" class="block py-3 text-gray-700 hover:text-accent-600 font-medium border-b border-gray-100">Services</a>
+                <a href="#about" class="block py-3 text-gray-700 hover:text-accent-600 font-medium border-b border-gray-100">About</a>
+                <a href="#contact" class="block py-3 text-gray-700 hover:text-accent-600 font-medium">Contact</a>
+                <div class="mt-4">
+                    <a href="#contact" class="block w-full bg-primary-700 hover:bg-primary-800 text-white font-medium py-3 px-6 rounded-lg text-center transition duration-300">
+                        Get Started
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="premium-gradient pt-32 pb-20 md:pt-40 md:pb-32 relative overflow-hidden">
+        <div class="container mx-auto px-4 md:px-8 lg:px-16 relative z-10">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 text-center md:text-left mb-12 md:mb-0">
+                    <h1 class="playfair text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+                        Elevate Your <span class="text-accent-400">Digital</span> Presence
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-lg">
+                        Premium digital marketing and graphic design services tailored for ambitious brands seeking global recognition.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-6">
+                        <a href="#services" class="bg-white text-primary-700 hover:bg-gray-100 font-semibold px-8 py-4 rounded-lg transition duration-300 text-center shadow-lg">
+                            Explore Services
+                        </a>
+                        <a href="#contact" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary-700 font-semibold px-8 py-4 rounded-lg transition duration-300 text-center">
+                            Contact Us
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 animate-float">
+                    <svg class="w-full h-auto" viewBox="0 0 600 500" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Abstract digital marketing illustration -->
+                        <defs>
+                            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.9" />
+                                <stop offset="100%" style="stop-color:#f3f4f6;stop-opacity:0.9" />
+                            </linearGradient>
+                            <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#1f2937;stop-opacity:0.9" />
+                                <stop offset="100%" style="stop-color:#c17d54;stop-opacity:0.9" />
+                            </linearGradient>
+                            <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                                <feDropShadow dx="0" dy="10" stdDeviation="15" flood-color="#000000" flood-opacity="0.3"/>
+                            </filter>
+                        </defs>
+                        
+                        <!-- Main device frame -->
+                        <rect x="100" y="50" width="400" height="300" rx="20" fill="url(#grad1)" filter="url(#shadow)"/>
+                        
+                        <!-- Screen content -->
+                        <rect x="120" y="80" width="360" height="240" rx="10" fill="#f8fafc"/>
+                        
+                        <!-- Header bar -->
+                        <rect x="120" y="80" width="360" height="40" rx="10" fill="url(#grad2)"/>
+                        <circle cx="140" cy="100" r="6" fill="#ffffff"/>
+                        <circle cx="160" cy="100" r="6" fill="#ffffff"/>
+                        <circle cx="180" cy="100" r="6" fill="#ffffff"/>
+                        
+                        <!-- Content elements -->
+                        <rect x="140" y="140" width="150" height="15" rx="4" fill="#1f2937" opacity="0.8"/>
+                        <rect x="140" y="165" width="320" height="10" rx="4" fill="#e2e8f0"/>
+                        <rect x="140" y="185" width="280" height="10" rx="4" fill="#e2e8f0"/>
+                        <rect x="140" y="205" width="300" height="10" rx="4" fill="#e2e8f0"/>
+                        
+                        <!-- Chart element -->
+                        <rect x="140" y="235" width="60" height="60" rx="8" fill="#f3f4f6" stroke="#1f2937" stroke-width="2"/>
+                        <path d="M150,285 L160,265 L170,275 L180,245 L190,255" stroke="#1f2937" stroke-width="2" fill="none"/>
+                        
+                        <!-- Image placeholder -->
+                        <rect x="220" y="235" width="120" height="60" rx="8" fill="#f3f4f6" stroke="#c17d54" stroke-width="2"/>
+                        <circle cx="250" cy="255" r="10" fill="#c17d54" opacity="0.6"/>
+                        <rect x="270" y="250" width="50" height="8" rx="4" fill="#c17d54" opacity="0.6"/>
+                        <rect x="270" y="265" width="40" height="8" rx="4" fill="#c17d54" opacity="0.4"/>
+                        
+                        <!-- Social media icons -->
+                        <circle cx="370" y="245" r="10" fill="#1f2937" opacity="0.8"/>
+                        <circle cx="370" y="275" r="10" fill="#c17d54" opacity="0.8"/>
+                        <circle cx="400" y="245" r="10" fill="#1f2937" opacity="0.6"/>
+                        <circle cx="400" y="275" r="10" fill="#c17d54" opacity="0.6"/>
+                        
+                        <!-- Floating elements -->
+                        <circle cx="150" cy="380" r="25" fill="url(#grad2)" opacity="0.9"/>
+                        <circle cx="450" cy="100" r="20" fill="url(#grad2)" opacity="0.7"/>
+                        <circle cx="480" cy="380" r="30" fill="url(#grad2)" opacity="0.8"/>
+                        <circle cx="50" cy="200" r="15" fill="url(#grad2)" opacity="0.6"/>
+                        
+                        <!-- Connection lines -->
+                        <path d="M150,380 C200,350 250,400 300,350" stroke="#c17d54" stroke-width="2" stroke-dasharray="5,5" fill="none"/>
+                        <path d="M300,350 C350,300 400,330 450,100" stroke="#1f2937" stroke-width="2" stroke-dasharray="5,5" fill="none"/>
+                        <path d="M450,100 C500,150 520,300 480,380" stroke="#c17d54" stroke-width="2" stroke-dasharray="5,5" fill="none"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Decorative elements -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-primary-700 rounded-full opacity-10 transform translate-x-1/3 -translate-y-1/3"></div>
+        <div class="absolute bottom-0 left-0 w-80 h-80 bg-accent-700 rounded-full opacity-10 transform -translate-x-1/3 translate-y-1/3"></div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 md:py-32 bg-white">
+        <div class="container mx-auto px-4 md:px-8 lg:px-16">
+            <div class="text-center mb-20">
+                <span class="text-accent-700 font-semibold uppercase tracking-wider">What We Offer</span>
+                <h2 class="playfair text-3xl md:text-4xl lg:text-5xl font-bold text-dark-800 mt-3 mb-6">Premium Services</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary-700 to-accent-700 mx-auto mb-8"></div>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    We provide comprehensive digital marketing and design solutions tailored to elevate your brand's presence in the global marketplace.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Service 1 -->
+                <div class="service-card bg-white rounded-xl shadow-premium hover:shadow-premium-hover p-8 border border-gray-100">
+                    <div class="bg-gradient-to-br from-primary-100 to-primary-200 text-primary-700 rounded-2xl w-16 h-16 flex items-center justify-center mb-6">
+                        <i class="fas fa-hashtag text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark-800 mb-4">Social Media Marketing</h3>
+                    <p class="text-gray-600 mb-6">
+                        Strategic social media campaigns across all major platforms to boost your brand visibility and engagement with targeted audiences.
+                    </p>
+                    <a href="#contact" class="text-primary-700 hover:text-primary-800 font-medium inline-flex items-center group">
+                        Learn more
+                        <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-white rounded-xl shadow-premium hover:shadow-premium-hover p-8 border border-gray-100">
+                    <div class="bg-gradient-to-br from-accent-100 to-accent-200 text-accent-700 rounded-2xl w-16 h-16 flex items-center justify-center mb-6">
+                        <i class="fas fa-paint-brush text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark-800 mb-4">Premium Graphic Design</h3>
+                    <p class="text-gray-600 mb-6">
+                        Sophisticated visual content creation including logos, branding materials, and marketing collateral that captures your brand essence.
+                    </p>
+                    <a href="#contact" class="text-accent-700 hover:text-accent-800 font-medium inline-flex items-center group">
+                        Learn more
+                        <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-white rounded-xl shadow-premium hover:shadow-premium-hover p-8 border border-gray-100">
+                    <div class="bg-gradient-to-br from-primary-100 to-primary-200 text-primary-700 rounded-2xl w-16 h-16 flex items-center justify-center mb-6">
+                        <i class="fas fa-globe text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark-800 mb-4">International Marketing</h3>
+                    <p class="text-gray-600 mb-6">
+                        Specialized marketing strategies for global audiences, helping you expand your reach beyond borders with culturally relevant approaches.
+                    </p>
+                    <a href="#contact" class="text-primary-700 hover:text-primary-800 font-medium inline-flex items-center group">
+                        Learn more
+                        <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card bg-white rounded-xl shadow-premium hover:shadow-premium-hover p-8 border border-gray-100">
+                    <div class="bg-gradient-to-br from-accent-100 to-accent-200 text-accent-700 rounded-2xl w-16 h-16 flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-line text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark-800 mb-4">Strategic Digital Planning</h3>
+                    <p class="text-gray-600 mb-6">
+                        Data-driven digital marketing strategies tailored to your business goals, target audience, and competitive landscape for maximum ROI.
+                    </p>
+                    <a href="#contact" class="text-accent-700 hover:text-accent-800 font-medium inline-flex items-center group">
+                        Learn more
+                        <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card bg-white rounded-xl shadow-premium hover:shadow-premium-hover p-8 border border-gray-100">
+                    <div class="bg-gradient-to-br from-primary-100 to-primary-200 text-primary-700 rounded-2xl w-16 h-16 flex items-center justify-center mb-6">
+                        <i class="fas fa-desktop text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark-800 mb-4">Premium Web Design</h3>
+                    <p class="text-gray-600 mb-6">
+                        Sophisticated, responsive website design that captures your brand essence with immersive user experiences that convert visitors into customers.
+                    </p>
+                    <a href="#contact" class="text-primary-700 hover:text-primary-800 font-medium inline-flex items-center group">
+                        Learn more
+                        <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card bg-white rounded-xl shadow-premium hover:shadow-premium-hover p-8 border border-gray-100">
+                    <div class="bg-gradient-to-br from-accent-100 to-accent-200 text-accent-700 rounded-2xl w-16 h-16 flex items-center justify-center mb-6">
+                        <i class="fas fa-bullhorn text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark-800 mb-4">Content Marketing</h3>
+                    <p class="text-gray-600 mb-6">
+                        Engaging content creation and distribution strategies that build authority, establish thought leadership, and drive organic traffic.
+                    </p>
+                    <a href="#contact" class="text-accent-700 hover:text-accent-800 font-medium inline-flex items-center group">
+                        Learn more
+                        <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 md:py-32 bg-gray-50 relative overflow-hidden">
+        <div class="container mx-auto px-4 md:px-8 lg:px-16 relative z-10">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0">
+                    <div class="relative">
+                        <div class="bg-primary-700 absolute top-0 left-0 w-64 h-64 rounded-full opacity-10 -z-10 transform -translate-x-10 -translate-y-10"></div>
+                        <div class="bg-accent-700 absolute bottom-0 right-0 w-64 h-64 rounded-full opacity-10 -z-10 transform translate-x-10 translate-y-10"></div>
+                        
+                        <div class="bg-white rounded-2xl shadow-premium p-6 md:p-10 relative z-10">
+                            <div class="flex items-center mb-8">
+                                <div class="w-20 h-20 rounded-full overflow-hidden mr-6 bg-gradient-to-br from-primary-700 to-accent-700 flex items-center justify-center text-white text-2xl font-bold">
+                                    SM
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-dark-800">Selvie Milani</h3>
+                                    <p class="text-primary-700">Founder & CEO</p>
+                                </div>
+                            </div>
+                            <blockquote class="text-gray-600 italic mb-8">
+                                "Our mission at InterMedius is to bridge the gap between brands and their global audience through strategic digital marketing and exceptional design that resonates across cultures."
+                            </blockquote>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-gray-100 hover:bg-gray-200 text-gray-600 w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="bg-gray-100 hover:bg-gray-200 text-gray-600 w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="bg-gray-100 hover:bg-gray-200 text-gray-600 w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 md:pl-16">
+                    <span class="text-accent-700 font-semibold uppercase tracking-wider">Our Story</span>
+                    <h2 class="playfair text-3xl md:text-4xl lg:text-5xl font-bold text-dark-800 mt-3 mb-6">About InterMedius</h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-primary-700 to-accent-700 mb-8"></div>
+                    
+                    <p class="text-lg text-gray-600 mb-6">
+                        Founded by Selvie Milani, InterMedius is a premier digital marketing and graphic design agency serving clients both locally and internationally. We specialize in creating sophisticated digital experiences that transcend borders.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-8">
+                        Our mission is to help ambitious brands establish a commanding digital presence through strategic marketing and captivating design. We pride ourselves on delivering tailored solutions that drive measurable results and create lasting impressions.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-8 mb-10">
+                        <div class="bg-white rounded-xl shadow-premium p-6 text-center">
+                            <div class="text-primary-700 font-bold text-4xl mb-2">5+</div>
+                            <p class="text-gray-600 font-medium">Years of Excellence</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-premium p-6 text-center">
+                            <div class="text-accent-700 font-bold text-4xl mb-2">100+</div>
+                            <p class="text-gray-600 font-medium">Satisfied Clients</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-premium p-6 text-center">
+                            <div class="text-primary-700 font-bold text-4xl mb-2">15+</div>
+                            <p class="text-gray-600 font-medium">Countries Served</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-premium p-6 text-center">
+                            <div class="text-accent-700 font-bold text-4xl mb-2">500+</div>
+                            <p class="text-gray-600 font-medium">Projects Delivered</p>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="inline-block bg-primary-700 hover:bg-primary-800 text-white font-semibold px-8 py-4 rounded-lg transition duration-300 shadow-lg">
+                        Work With Us
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Decorative elements -->
+        <div class="absolute top-1/4 right-0 w-64 h-64 bg-primary-200 rounded-full opacity-20 blur-3xl"></div>
+        <div class="absolute bottom-1/4 left-0 w-64 h-64 bg-accent-200 rounded-full opacity-20 blur-3xl"></div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial-gradient py-20 md:py-32 text-white relative overflow-hidden">
+        <div class="container mx-auto px-4 md:px-8 lg:px-16 relative z-10">
+            <div class="text-center mb-16">
+                <span class="text-accent-300 font-semibold uppercase tracking-wider">Client Feedback</span>
+                <h2 class="playfair text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-3 mb-6">What Our Clients Say</h2>
+                <div class="w-24 h-1 bg-white mx-auto mb-8"></div>
+                <p class="text-lg text-gray-200 max-w-2xl mx-auto">
+                    Don't just take our word for it. Here's what our clients have to say about working with InterMedius.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-8 border border-white border-opacity-20 transform transition duration-300 hover:-translate-y-2">
+                    <div class="flex items-center mb-6">
+                        <div class="text-yellow-300 flex">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="mb-8 text-gray-100 text-lg italic">
+                        "InterMedius transformed our social media presence completely. Their strategic approach and creative designs helped us increase engagement by over 200% and expand into three new markets."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="bg-gradient-to-br from-primary-600 to-accent-600 h-14 w-14 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                            AM
+                        </div>
+                        <div class="ml-4">
+                            <p class="font-semibold text-white">Ana Marku</p>
+                            <p class="text-gray-300">Retail Business Owner</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-8 border border-white border-opacity-20 transform transition duration-300 hover:-translate-y-2">
+                    <div class="flex items-center mb-6">
+                        <div class="text-yellow-300 flex">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="mb-8 text-gray-100 text-lg italic">
+                        "Working with Selvie and the InterMedius team has been a game-changer for our international marketing efforts. They understand different markets and deliver sophisticated strategies that resonate across cultures."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="bg-gradient-to-br from-primary-600 to-accent-600 h-14 w-14 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                            MK
+                        </div>
+                        <div class="ml-4">
+                            <p class="font-semibold text-white">Marco Kovaci</p>
+                            <p class="text-gray-300">Export Company Director</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-8 border border-white border-opacity-20 transform transition duration-300 hover:-translate-y-2">
+                    <div class="flex items-center mb-6">
+                        <div class="text-yellow-300 flex">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <p class="mb-8 text-gray-100 text-lg italic">
+                        "The branding package we received from InterMedius perfectly captured our company's vision. Professional, responsive, and incredibly talented team that delivered beyond our expectations."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="bg-gradient-to-br from-primary-600 to-accent-600 h-14 w-14 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                            EH
+                        </div>
+                        <div class="ml-4">
+                            <p class="font-semibold text-white">Elena Hoxha</p>
+                            <p class="text-gray-300">Startup Founder</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Decorative elements -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-primary-700 rounded-full opacity-20 blur-3xl transform translate-x-1/3 -translate-y-1/3"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-accent-700 rounded-full opacity-20 blur-3xl transform -translate-x-1/3 translate-y-1/3"></div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 md:py-32 bg-white relative overflow-hidden">
+        <div class="container mx-auto px-4 md:px-8 lg:px-16 relative z-10">
+            <div class="text-center mb-16">
+                <span class="text-accent-700 font-semibold uppercase tracking-wider">Get In Touch</span>
+                <h2 class="playfair text-3xl md:text-4xl lg:text-5xl font-bold text-dark-800 mt-3 mb-6">Contact Us</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary-700 to-accent-700 mx-auto mb-8"></div>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Ready to elevate your brand's digital presence? Contact us today to discuss how we can help your business grow.
+                </p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row bg-white rounded-2xl shadow-premium overflow-hidden">
+                <div class="lg:w-1/2 p-8 md:p-12">
+                    <h3 class="text-2xl font-bold text-dark-800 mb-6">Send Us a Message</h3>
+                    
+                    <!-- Contact Form -->
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition duration-300" placeholder="Your name" required>
+                            <div id="name-error" class="form-error hidden"></div>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition duration-300" placeholder="Your email" required>
+                            <div id="email-error" class="form-error hidden"></div>
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
+                            <input type="text" id="subject" name="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition duration-300" placeholder="Subject" required>
+                            <div id="subject-error" class="form-error hidden"></div>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition duration-300" placeholder="Your message" required></textarea>
+                            <div id="message-error" class="form-error hidden"></div>
+                        </div>
+                        
+                        <div>
+                            <button type="submit" id="submit-button" class="w-full bg-primary-700 hover:bg-primary-800 text-white font-semibold py-4 px-6 rounded-lg transition duration-300 shadow-lg flex items-center justify-center">
+                                <span>Send Message</span>
+                                <div id="form-loading" class="form-loading ml-3">
+                                    <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                    </svg>
+                                </div>
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <!-- Success Message (Hidden by default) -->
+                    <div id="form-success" class="hidden mt-8 bg-green-50 border border-green-200 rounded-lg p-6 text-center form-success">
+                        <div class="bg-green-100 text-green-600 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <h4 class="text-xl font-bold text-green-800 mb-2">Message Sent Successfully!</h4>
+                        <p class="text-green-700">Thank you for contacting us. We'll get back to you shortly.</p>
+                        <button id="send-another" class="mt-4 bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-6 rounded-lg transition duration-300">
+                            Send Another Message
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2 premium-gradient p-8 md:p-12 text-white">
+                    <h3 class="text-2xl font-bold mb-8">Contact Information</h3>
+                    
+                    <div class="space-y-8">
+                        <div class="flex items-start">
+                            <div class="bg-white bg-opacity-20 rounded-full w-12 h-12 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-xl mb-2">Our Location</h4>
+                                <p class="text-gray-200">Shkoder National Road Mes-Prekal, Milan, Nd.5, Entrance 1, Postribë</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-white bg-opacity-20 rounded-full w-12 h-12 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-xl mb-2">Email Us</h4>
+                                <a href="mailto:selviemilani1988@gmail.com" class="text-gray-200 hover:text-white transition duration-300">selviemilani1988@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-white bg-opacity-20 rounded-full w-12 h-12 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                                <i class="fas fa-phone text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-xl mb-2">Call Us</h4>
+                                <a href="tel:06860208070" class="text-gray-200 hover:text-white transition duration-300">+355 68 602 0807</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-white bg-opacity-20 rounded-full w-12 h-12 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                                <i class="fas fa-clock text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-xl mb-2">Business Hours</h4>
+                                <p class="text-gray-200">Monday - Friday: 9:00 AM - 6:00 PM</p>
+                                <p class="text-gray-200">Saturday: 10:00 AM - 2:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12">
+                        <h4 class="font-semibold text-xl mb-4">Connect With Us</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-white bg-opacity-20 hover:bg-opacity-30 w-12 h-12 rounded-full flex items-center justify-center transition duration-300">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="bg-white bg-opacity-20 hover:bg-opacity-30 w-12 h-12 rounded-full flex items-center justify-center transition duration-300">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="bg-white bg-opacity-20 hover:bg-opacity-30 w-12 h-12 rounded-full flex items-center justify-center transition duration-300">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="bg-white bg-opacity-20 hover:bg-opacity-30 w-12 h-12 rounded-full flex items-center justify-center transition duration-300">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Decorative elements -->
+        <div class="absolute top-1/4 right-0 w-64 h-64 bg-primary-100 rounded-full opacity-70 blur-3xl"></div>
+        <div class="absolute bottom-1/4 left-0 w-64 h-64 bg-accent-100 rounded-full opacity-70 blur-3xl"></div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-4 md:px-8 lg:px-16">
+            <div class="bg-gradient-to-r from-primary-700 to-accent-700 rounded-2xl p-8 md:p-12 lg:p-16 text-center text-white relative overflow-hidden shadow-premium">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-white rounded-full opacity-10 transform translate-x-1/3 -translate-y-1/3"></div>
+                <div class="absolute bottom-0 left-0 w-64 h-64 bg-white rounded-full opacity-10 transform -translate-x-1/3 translate-y-1/3"></div>
+                
+                <div class="relative z-10">
+                    <h2 class="playfair text-3xl md:text-4xl lg:text-5xl font-bold mb-6">Ready to Transform Your Digital Presence?</h2>
+                    <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto">
+                        Partner with InterMedius for premium digital marketing and design solutions that elevate your brand and drive measurable results.
+                    </p>
+                    <a href="#contact" class="inline-block bg-white text-primary-700 hover:bg-gray-100 font-semibold px-8 py-4 rounded-lg transition duration-300 shadow-lg">
+                        Get Started
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-900 text-white py-16">
+        <div class="container mx-auto px-4 md:px-8 lg:px-16">
+            <div class="flex flex-col md:flex-row justify-between mb-12">
+                <div class="mb-10 md:mb-0 md:w-1/3">
+                    <div class="text-2xl font-bold mb-6">
+                        <span class="playfair text-primary-400">Inter</span><span class="playfair text-accent-400">Medius</span>
+                    </div>
+                    <p class="text-gray-400 max-w-xs mb-6">
+                        Premium digital marketing and graphic design services for ambitious brands seeking global recognition.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-dark-800 hover:bg-primary-700 w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="bg-dark-800 hover:bg-primary-700 w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="bg-dark-800 hover:bg-primary-700 w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-dark-800 hover:bg-primary-700 w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-10 md:w-2/3">
+                    <div>
+                        <h3 class="text-lg font-semibold mb-6">Quick Links</h3>
+                        <ul class="space-y-3">
+                            <li><a href="#home" class="text-gray-400 hover:text-accent-400 transition duration-300">Home</a></li>
+                            <li><a href="#services" class="text-gray-400 hover:text-accent-400 transition duration-300">Services</a></li>
+                            <li><a href="#about" class="text-gray-400 hover:text-accent-400 transition duration-300">About</a></li>
+                            <li><a href="#contact" class="text-gray-400 hover:text-accent-400 transition duration-300">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold mb-6">Services</h3>
+                        <ul class="space-y-3">
+                            <li><a href="#services" class="text-gray-400 hover:text-accent-400 transition duration-300">Social Media Marketing</a></li>
+                            <li><a href="#services" class="text-gray-400 hover:text-accent-400 transition duration-300">Graphic Design</a></li>
+                            <li><a href="#services" class="text-gray-400 hover:text-accent-400 transition duration-300">Web Design</a></li>
+                            <li><a href="#services" class="text-gray-400 hover:text-accent-400 transition duration-300">Digital Strategy</a></li>
+                            <li><a href="#services" class="text-gray-400 hover:text-accent-400 transition duration-300">Content Marketing</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold mb-6">Contact</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-accent-400 mt-1 mr-3"></i>
+                                <span class="text-gray-400">Shkoder, Albania</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-envelope text-accent-400 mt-1 mr-3"></i>
+                                <a href="mailto:selviemilani1988@gmail.com" class="text-gray-400 hover:text-accent-400 transition duration-300">selviemilani1988@gmail.com</a>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-phone text-accent-400 mt-1 mr-3"></i>
+                                <a href="tel:06860208070" class="text-gray-400 hover:text-accent-400 transition duration-300">+355 68 602 0807</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 mb-4 md:mb-0">
+                    &copy; 2023 InterMedius. All rights reserved.
+                </p>
+                <div class="flex space-x-8">
+                    <a href="#" class="text-gray-500 hover:text-accent-400 transition duration-300">Privacy Policy</a>
+                    <a href="#" class="text-gray-500 hover:text-accent-400 transition duration-300">Terms of Service</a>
+                    <a href="#" class="text-gray-500 hover:text-accent-400 transition duration-300">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('py-2');
+                navbar.classList.remove('py-4');
+            } else {
+                navbar.classList.add('py-4');
+                navbar.classList.remove('py-2');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Contact form functionality
+        const contactForm = document.getElementById('contact-form');
+        const formSuccess = document.getElementById('form-success');
+        const sendAnother = document.getElementById('send-another');
+        const submitButton = document.getElementById('submit-button');
+        const formLoading = document.getElementById('form-loading');
+        
+        // Form validation
+        function validateEmail(email) {
+            const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(String(email).toLowerCase());
+        }
+        
+        function showError(field, message) {
+            const errorElement = document.getElementById(`${field}-error`);
+            errorElement.textContent = message;
+            errorElement.classList.remove('hidden');
+            document.getElementById(field).classList.add('border-red-500');
+            return false;
+        }
+        
+        function clearError(field) {
+            const errorElement = document.getElementById(`${field}-error`);
+            errorElement.textContent = '';
+            errorElement.classList.add('hidden');
+            document.getElementById(field).classList.remove('border-red-500');
+        }
+        
+        function validateForm() {
+            let isValid = true;
+            
+            // Validate name
+            const name = document.getElementById('name').value.trim();
+            if (name === '') {
+                isValid = showError('name', 'Please enter your name');
+            } else {
+                clearError('name');
+            }
+            
+            // Validate email
+            const email = document.getElementById('email').value.trim();
+            if (email === '') {
+                isValid = showError('email', 'Please enter your email address');
+            } else if (!validateEmail(email)) {
+                isValid = showError('email', 'Please enter a valid email address');
+            } else {
+                clearError('email');
+            }
+            
+            // Validate subject
+            const subject = document.getElementById('subject').value.trim();
+            if (subject === '') {
+                isValid = showError('subject', 'Please enter a subject');
+            } else {
+                clearError('subject');
+            }
+            
+            // Validate message
+            const message = document.getElementById('message').value.trim();
+            if (message === '') {
+                isValid = showError('message', 'Please enter your message');
+            } else if (message.length < 10) {
+                isValid = showError('message', 'Your message is too short');
+            } else {
+                clearError('message');
+            }
+            
+            return isValid;
+        }
+        
+        // Form submission
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate form
+            if (!validateForm()) {
+                return;
+            }
+            
+            // Show loading state
+            submitButton.disabled = true;
+            formLoading.classList.add('show');
+            
+            // Simulate form submission with delay
+            setTimeout(() => {
+                // Hide form and show success message
+                contactForm.classList.add('hidden');
+                formSuccess.classList.remove('hidden');
+                
+                // Add animation class after a brief delay
+                setTimeout(() => {
+                    formSuccess.classList.add('show');
+                }, 100);
+                
+                // Reset form
+                contactForm.reset();
+                submitButton.disabled = false;
+                formLoading.classList.remove('show');
+            }, 1500);
+        });
+        
+        // Send another message button
+        sendAnother.addEventListener('click', function() {
+            formSuccess.classList.remove('show');
+            
+            // Hide success message and show form after animation completes
+            setTimeout(() => {
+                formSuccess.classList.add('hidden');
+                contactForm.classList.remove('hidden');
+                contactForm.classList.add('slide-in');
+                
+                // Remove animation class after it completes
+                setTimeout(() => {
+                    contactForm.classList.remove('slide-in');
+                }, 500);
+            }, 300);
+        });
+        
+        // Real-time validation
+        document.getElementById('name').addEventListener('blur', function() {
+            if (this.value.trim() !== '') {
+                clearError('name');
+            }
+        });
+        
+        document.getElementById('email').addEventListener('blur', function() {
+            const email = this.value.trim();
+            if (email !== '' && validateEmail(email)) {
+                clearError('email');
+            }
+        });
+        
+        document.getElementById('subject').addEventListener('blur', function() {
+            if (this.value.trim() !== '') {
+                clearError('subject');
+            }
+        });
+        
+        document.getElementById('message').addEventListener('blur', function() {
+            const message = this.value.trim();
+            if (message !== '' && message.length >= 10) {
+                clearError('message');
+            }
+        });
+        
+        // Animation on scroll (simple implementation)
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.service-card');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('animate-on-scroll');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', animateOnScroll);
+    </script>
+</body>
+</html>
